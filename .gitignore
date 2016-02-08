@@ -1,6 +1,9 @@
 # Database
 db.sqlite3
 
+# Static Files
+staticfiles
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
