@@ -1,41 +1,21 @@
-# Heroku Django Starter Template
+Section 1: Purpose
+RC Event Announce is an open-source application released under GNU Public License to help distribute information about upcoming events. It’s primary stakeholders are 1) BMRCs, who can use the app to easily maintain a calendar of upcoming events in their region, 2) Event planners/promoters, who can use the application to reach their target market, 3) the BM community, who can use the app for their region to find events in their area. 
 
-An utterly fantastic project starter template for Django 1.9.
 
-## Features
+Section 2: High Level Entities
+Events: Events can be created by event planners and reviewed by an RC or created by an RC. They will remain in the database for 30 days after the event. Events are tagged to categorize them for their intended audience. 
 
-- Production-ready configuration for Static Files, Database Settings, Gunicorn, etc.
-- Enhancements to Django's static file serving functionality via WhiteNoise
+RC view: RCs can ensure that an event is relevant to the burner community before it is visible to participants.
 
-## How to Use
+Distribution: After RC approval, the event will be visible on a public facing Google Calendar page and sent to a distribution email list. 
 
-To use this project, follow these steps:
+Section 3: Low Level Design
+Event object: Database entry for each event. Date/Time, Location, Ticket price/availability, Presale link, Website/Contact info
 
-1. Create your working environment.
-2. Install Django (`$ pip install django`)
-3. Create a new project using this template
+Event app: Creates Event objects. Scrapes Facebook (and other websites?) for event information to populate fields. Flushes database of entries 30 days after the event. 
 
-## Creating Your Project
+RC View app: Allows event management and approval for distribution.
 
-Using this template to create a new Django app is easy::
+Participant View app:Allows participants to manage their email address and subscribe/unsubscribe to different audiences
 
-    $ django-admin.py startproject --template=https://github.com/heroku/heroku-django-template/archive/master.zip --name=Procfile helloworld
-
-You can replace ``helloworld`` with your desired project name.
-
-## Deployment to Heroku
-
-    $ git init
-    $ git add -A
-    $ git commit -m "Initial commit"
-
-    $ heroku create
-    $ git push heroku master
-
-    $ heroku run python manage.py migrate
-
-## Further Reading
-
-- [Gunicorn](https://warehouse.python.org/project/gunicorn/)
-- [WhiteNoise](https://warehouse.python.org/project/whitenoise/)
-- [dj-database-url](https://warehouse.python.org/project/dj-database-url/)
+Distribution App: Interfaces with Google Calendar to maintain calendar. Interfaces with Google Mail to distribute email list to participants depending on their stated interests.
