@@ -1,0 +1,1 @@
+web: gunicorn rcannounce.wsgi --log-file -
