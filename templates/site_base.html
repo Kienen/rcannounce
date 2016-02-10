@@ -18,6 +18,7 @@
 
     <!-- Custom CSS -->
     <link href="{% static "css/business-casual.css" %}"rel="stylesheet">
+    <link href="{% static "css/site.css" %}"rel="stylesheet">
 
     <!-- Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -37,7 +38,7 @@
 
 <body>
 
-    <div class="brand">San Diego Events</div>
+    <div class="brand">San Diego Burner Events</div>
 
     <!-- Navigation -->
     <nav class="navbar navbar-default" role="navigation">
@@ -84,7 +85,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <small><p>This site is community built and maintained. It is not responsible for or affiliated with Burning Man, LLC or any events, groups, websites, or information linked/promoted here, and all of the above should be assumed to be potentially fatal.</p></small>  <strong> Safety Third.</strong>
                 </div>
             </div>
         </div>
@@ -95,9 +96,9 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static "js/bootstrap.min.js" %}"></script>
-    {% block scripts %} 
+    {% block scripts %}{% endblock %}
 
-    {% endblock %}
+    
 
 </body>
 

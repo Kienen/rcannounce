@@ -1,29 +1,39 @@
 {% extends "site_base.html" %}
 {% load account_tags %}
 {% load i18n %}
+{% load staticfiles %}
 {% load crispy_forms_tags %}
 
 {% block head_title %}{% trans "Log in" %}{% endblock %}
 
-{% block body %}
-    <div class="row">
-        <div class="col-md-4">
-            <form method="POST" action="{% url "account_login" %}" autocapitalize="off" 
-                <legend>{% trans "Log into an existing account" %}</legend>
-                {% csrf_token %}
-                {{ form|crispy }}
-                <button type="submit" class="btn btn-primary">{% trans "Log in" %}</button>
-                <a href="{% url "account_password_reset" %}" class="btn btn-link">{% trans "Forgot your password?" %}</a>
-            </form>
-            {% if ACCOUNT_OPEN_SIGNUP %}
-                <p class="login-signup">
-                    <small>
-                        {% trans "Don't have an account?" %}  <strong><a href="{% urlnext 'account_signup' %}">{% trans "Sign up" %}</a></strong>
-                    </small>
-                </p>
-            {% endif %}
-        </div>
+{% block content %}
+<div class="row">
+    <div class="box">
+        
+            <div class="col-xs-4">
+                <form method="POST" action="{% url "account_login" %}" autocapitalize="off" 
+                    <legend>{% trans "Log into an existing account" %}</legend>
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit" class="btn btn-primary">{% trans "Log in" %}</button>
+                    <a href="{% url "account_password_reset" %}" class="btn btn-link">{% trans "Forgot your password?" %}</a>
+                </form>
+                {% if ACCOUNT_OPEN_SIGNUP %}
+                    <p class="login-signup">
+                        <small>
+                            {% trans "Don't have an account?" %}  <strong><a href="{% urlnext 'account_signup' %}">{% trans "Sign up" %}</a></strong>
+                        </small>
+                    </p>
+                {% endif %}
+            </div>
+            <div class="col-md-8">
+                <p>Your email will be used only to send you information about upcoming events. You may change your setttings or unsubscribe at any time. We will not share your information with any third party.</p>    
+           </div>
+            
+        
     </div>
+</div>
+
 {% endblock %}
 
 {% block scripts %}
