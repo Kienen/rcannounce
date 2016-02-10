@@ -1,7 +1,7 @@
 from selenium import webdriver
 import unittest
 
-class NewEventTest(unittest.TestCase):  
+class NewParticipantTest(unittest.TestCase):  
 
     def setUp(self):  
         self.browser = webdriver.Firefox()
@@ -9,9 +9,9 @@ class NewEventTest(unittest.TestCase):
     def tearDown(self):  
         self.browser.quit()
 
-    def test_serving_empty_webpage(self):  
+    def test_serving_event_webpage(self):  
         self.browser.get('http://localhost:8000')
-        self.assertIn('Django', self.browser.title)  
+        self.assertIn('San Diego Events', self.browser.title)  
 
 if __name__ == '__main__':  
     unittest.main() 

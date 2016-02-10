@@ -12,10 +12,8 @@ Distribution: After RC approval, the event will be visible on a public facing Go
 Section 3: Low Level Design
 Event object: Database entry for each event. Date/Time, Location, Ticket price/availability, Presale link, Website/Contact info
 
-Event app: Creates Event objects. Scrapes Facebook (and other websites?) for event information to populate fields. Flushes database of entries 30 days after the event. 
+Event app: Allows participants to create and manage their Event objects. Scrapes Facebook (and other websites?) for event information to populate fields. Flushes database of entries 30 days after the event. 
 
-RC View app: Allows event management and approval for distribution.
-
-Participant View app:Allows participants to manage their email address and subscribe/unsubscribe to different audiences
+Participant app:Allows participants to manage their email address and subscribe/unsubscribe to different audiences. Allows event management and approval for distribution to users with correct permissions.
 
 Distribution App: Interfaces with Google Calendar to maintain calendar. Interfaces with Google Mail to distribute email list to participants depending on their stated interests.
