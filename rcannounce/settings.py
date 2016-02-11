@@ -29,7 +29,7 @@ DEBUG = True
 # Application definition
 
 INSTALLED_APPS = (
-    #'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -138,7 +138,6 @@ ALLOWED_HOSTS = ['*']
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
-#MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
@@ -155,3 +154,7 @@ CRISPY_TEMPLATE_PACK= 'bootstrap3'
 ACCOUNT_EMAIL_UNIQUE = True
 ACCOUNT_EMAIL_CONFIRMATION_REQUIRED = True
 
+SITE_ID=1
+
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = '/media/kienen/DATA/temp/' 
