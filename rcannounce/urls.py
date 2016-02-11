@@ -5,6 +5,7 @@ from participant import views as participant_views
 urlpatterns = [
     # Examples:
     url(r'^$', participant_views.home_page, name='home'),
+    url(r"^account/signup", participant_views.SignupView.as_view(template_name='account/signup.html')),
     # url(r'^blog/', include('blog.urls')),
 
     #url(r'^admin/', include(admin.site.urls)),

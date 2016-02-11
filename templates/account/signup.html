@@ -6,20 +6,22 @@
 
 {% block head_title %}{% trans "Sign up" %}{% endblock %}
 
-{% block body %}
+{% block content %}
     <div class="row">
-        <div class="col-md-4">
-            <form id="signup_form" method="post" action="{% url "account_signup" %}" autocapitalize="off" 
-                <legend>{% trans "Sign up" %}</legend>
-                {% csrf_token %}
-                {{ form|crispy }}
-                <button type="submit" class="btn btn-primary">{% trans "Sign up" %}</button>
-            </form>
-            <p class="login-signup">
-                <small>
-                    {% trans "Already have an account?" %}  <strong><a href="{% urlnext 'account_login' %}">{% trans "Log in" %}</a></strong>
-                </small>
-            </p>
+        <div class="box">
+            <div class="col-md-4">
+                <form id="signup_form" method="post" action="{% url "account_signup" %}" autocapitalize="off" 
+                    <legend>{% trans "Sign up" %}</legend>
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit" class="btn btn-primary">{% trans "Sign up" %}</button>
+                </form>
+                <p class="login-signup">
+                    <small>
+                        {% trans "Already have an account?" %}  <strong><a href="{% urlnext 'account_login' %}">{% trans "Log in" %}</a></strong>
+                    </small>
+                </p>
+            </div>
         </div>
     </div>
 {% endblock %}

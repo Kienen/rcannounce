@@ -8,9 +8,9 @@
 
 {% block content %}
 <div class="row">
-    <div class="box">
+    <div class="box" >
         
-            <div class="col-xs-4">
+            <div class="col-sm-4">
                 <form method="POST" action="{% url "account_login" %}" autocapitalize="off" 
                     <legend>{% trans "Log into an existing account" %}</legend>
                     {% csrf_token %}
@@ -26,9 +26,7 @@
                     </p>
                 {% endif %}
             </div>
-            <div class="col-md-8">
-                <p>Your email will be used only to send you information about upcoming events. You may change your setttings or unsubscribe at any time. We will not share your information with any third party.</p>    
-           </div>
+            
             
         
     </div>
